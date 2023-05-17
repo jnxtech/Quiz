@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quiz</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet"> 
+    <style>
+        body {
+            background: #0d0d0d;
+            font-family: 'Orbitron', sans-serif;
+        }
+        .container {
+            background: #1b1b1b;
+            border-radius: 15px;
+            padding: 30px;
+            max-width: 800px;
+            margin: 30px auto;
+            box-shadow: 0px 0px 20px #ff4081;
+            color: #f5f5f5;
+        }
+        h1 {
+            color: #ff4081;
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+        .btn-primary {
+            background: #ff4081;
+            border-color: #ff4081;
+        }
+        .btn-primary:hover {
+            background: #f50057;
+            border-color: #f50057;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Quiz</h1>
+        <form action="grade.php" method="post" id="quiz" class="needs-validation" novalidate>
+            <div id="quiz-content">
+                <!-- Quiz questions will be populated here by JavaScript -->
+            </div>
+            <input type="submit" class="btn btn-primary btn-lg btn-block" value="Submit Quiz" />
+        </form>
+    </div>
+    <script src="quiz.js"></script>
+    <script>
+        // Bootstrap validation script
+        (function () {
+            'use strict'
+            var forms = document.querySelectorAll('.needs-validation')
+            Array.from(forms)
+                .forEach(function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (!form.checkValidity()) {
+                            event.preventDefault()
+                            event.stopPropagation()
+                        }
+                        form.classList.add('was-validated')
+                    }, false)
+                })
+        })()
+    </script>
+</body>
+</html>
